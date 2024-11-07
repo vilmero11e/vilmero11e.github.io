@@ -3,172 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vilmerolle</title>
-    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%238a2be2'/></svg>">
+    <title>vilmerolle</title>
     <style>
+        /* General styling */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #2d2b38;
-            color: white;
+            font-family: Arial, sans-serif;
+            background-color: #0f1b2a;
+            color: #ffffff;
             text-align: center;
-            margin: 0;
             padding: 0;
+            margin: 0;
         }
+
         h1 {
             font-size: 3em;
+            color: #ffffff;
             margin-top: 100px;
-            color: #fff;
         }
+
         p {
             font-size: 1.5em;
-            margin-top: 20px;
-            color: #ddd;
+            color: #b0c4de;
         }
-        .social-links {
+
+        /* Link Section */
+        .links {
             margin-top: 50px;
         }
-        .social-links a {
+
+        .links a {
+            color: #5a7fa3;
+            font-size: 1.5em;
             text-decoration: none;
-            color: #8a2be2;
-            font-size: 1.2em;
-            margin: 0 15px;
-            transition: color 0.3s;
+            margin: 15px;
+            transition: color 0.3s ease;
         }
-        .social-links a:hover {
+
+        .links a:hover {
             color: #d18bff;
         }
 
-        /* Floating Button */
+        /* Show Projects Button */
         .floating-button {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 12px 25px;
-            background-color: #8a2be2;
+            padding: 15px 25px;
+            background-color: #5a7fa3;
             color: white;
+            font-size: 1.1em;
             border: none;
-            font-size: 1.5em;
-            border-radius: 50px;
+            border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s;
-        }
-        .floating-button:hover {
-            transform: translateX(-50%) scale(1.1) rotate(10deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            min-width: 160px;
         }
 
-        /* Modal Window Styles */
+        .floating-button:hover {
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Modal Overlay Styling */
         .modal-overlay {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.3s ease;
         }
+
+        /* Modal Window Styling */
         .modal-window {
-            background-color: #333;
-            border-radius: 10px;
+            background-color: #2d3a4b;
             padding: 30px;
-            width: 500px;
-            max-width: 90%;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            color: #fff;
-            font-size: 1.2em;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             opacity: 0;
             transform: translateY(-20px);
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
+
         .modal-header {
-            font-size: 1.8em;
+            font-size: 2em;
+            color: #ffffff;
             margin-bottom: 20px;
             font-weight: bold;
-            text-align: center;
-            color: #8a2be2;
         }
-        .modal-content {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+
         .modal-content a {
-            color: #8a2be2;
-            font-weight: bold;
+            display: block;
+            color: #d18bff;
             font-size: 1.2em;
             text-decoration: none;
+            margin: 10px 0;
             transition: color 0.3s ease;
         }
+
         .modal-content a:hover {
-            color: #d18bff;
+            color: #ffffff;
         }
+
+        /* Close Button Styling */
         .close-modal-btn {
-            background-color: #ff6961;
+            background-color: #d18bff;
             color: white;
-            border: none;
+            font-size: 1.1em;
             padding: 10px 20px;
-            font-size: 1.2em;
-            border-radius: 5px;
+            border: none;
+            border-radius: 30px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
         }
+
         .close-modal-btn:hover {
-            background-color: #e55b50;
+            transform: scale(1.05);
+            background-color: #b57bd7;
         }
+
     </style>
 </head>
 <body>
+
     <h1>Welcome to My Website</h1>
     <p>Check out my social media links and my projects!</p>
-    
-    <div class="social-links">
-        <p>Social Links:</p>
-        <a href="https://discord.com/users/772450136013799454" target="_blank">/discord</a>
-        <a href="https://github.com/vilmero11e" target="_blank">/github</a>
-        <a href="https://www.reddit.com/user/vilmero11e/" target="_blank">/reddit</a>
-        <a href="https://x.com/vilmero11e" target="_blank">/twitter</a>
+
+    <!-- Links on the Home Page with '/' before the name -->
+    <div class="links">
+        <a href="https://vilmero11e.github.io/reddit" target="_blank">/Reddit</a>
+        <a href="https://vilmero11e.github.io/twitter" target="_blank">/Twitter</a>
+        <a href="https://vilmero11e.github.io/github" target="_blank">/GitHub</a>
+        <a href="https://vilmero11e.github.io/discord" target="_blank">/Discord</a>
     </div>
 
-    <!-- Floating Show Project Button -->
-    <button class="floating-button" id="showProjectButton">Show My Project</button>
+    <!-- Show My Projects Button -->
+    <button id="showProjectButton" class="floating-button">Show My Projects</button>
 
-    <!-- Modal Window -->
+    <!-- Modal Overlay (Hidden by Default) -->
     <div id="modalOverlay" class="modal-overlay">
         <div class="modal-window">
-            <div class="modal-header">Christmas Countdown</div>
+            <div class="modal-header">Check Out My Projects</div>
             <div class="modal-content">
-                <p>This is a fun Christmas countdown app I created to keep track of the days until Christmas!</p>
-                <a href="https://daystochristmas.netlify.app/" target="_blank">View Live Project</a>
+                <a href="https://daystochristmas.netlify.app/" target="_blank">Visit DaystoChristmas</a><br>
             </div>
-            <button class="close-modal-btn" id="closeModalButton">Close</button>
+            <button id="closeModalButton" class="close-modal-btn">Close</button>
         </div>
     </div>
 
-    <!-- Dynamically Load oneko.js -->
+    <!-- Modal Window Handling -->
     <script>
-        // Load oneko.js immediately on page load
-        const onekoScript = document.createElement('script');
-        onekoScript.src = 'https://cdn.jsdelivr.net/npm/oneko@1.0.2/oneko.min.js';
-        document.body.appendChild(onekoScript);
-
-        // Initialize the cat animation once the script is loaded
-        onekoScript.onload = function() {
-            // Start the cat animation
-            oneko();
-        };
-
-        // Get the modal window and button
+        // Modal Window Handling
         const showProjectButton = document.getElementById('showProjectButton');
         const modalOverlay = document.getElementById('modalOverlay');
         const closeModalButton = document.getElementById('closeModalButton');
         const modalWindow = document.querySelector('.modal-window');
 
-        // Show the modal window
+        // Show the modal window when the button is clicked
         showProjectButton.addEventListener('click', function() {
             modalOverlay.style.display = 'flex'; // Show the modal overlay
             setTimeout(() => {
@@ -186,36 +186,43 @@
             }, 300);
         });
 
-        // Fetch random words from the GitHub raw txt file
-        fetch('https://raw.githubusercontent.com/Shreda/pentestTools/refs/heads/master/random-words.txt')
-            .then(response => response.text())
-            .then(data => {
-                const words = data.split('\n'); // Split the text file into words based on new lines
-                
-                // Title change functionality based on tab focus
-                const originalTitle = document.title;
-                const originalFavicon = document.querySelector("link[rel='icon']");
-                
-                // Function to change the title to a random word
-                function getRandomWord() {
-                    const randomIndex = Math.floor(Math.random() * words.length);
-                    return words[randomIndex].trim(); // Trim to remove any unwanted spaces or newlines
-                }
+        // Set the initial title when the website is active
+        document.title = "vilmerolle";
 
-                // Event listeners for document visibility
-                document.addEventListener('visibilitychange', function() {
-                    if (document.hidden) {
-                        // Set title to a random word when the tab is inactive
-                        document.title = getRandomWord();
-                        originalFavicon.href = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%238a2be2'/></svg>";
-                    } else {
-                        // Restore title when the tab is active
-                        document.title = "Vilmerolle";
-                        originalFavicon.href = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%238a2be2'/></svg>";
-                    }
-                });
-            })
-            .catch(error => console.error('Error fetching words:', error));
+        // Set up inactivity timeout period (in milliseconds)
+        const inactivityTime = 10000; // 10 seconds
+
+        // Function to fetch a random word from the external file
+        function fetchRandomWord() {
+            fetch("https://raw.githubusercontent.com/Shreda/pentestTools/refs/heads/master/random-words.txt")
+                .then(response => response.text())
+                .then(text => {
+                    // Split the file into an array of words and pick a random word
+                    const words = text.split("\n");
+                    const randomWord = words[Math.floor(Math.random() * words.length)];
+                    document.title = randomWord;
+                })
+                .catch(error => console.error("Error fetching random words:", error));
+        }
+
+        // Track user activity (mouse movements and keyboard input)
+        let activityTimer;
+
+        // Reset the activity timer whenever the user interacts with the page
+        function resetActivityTimer() {
+            clearTimeout(activityTimer);
+            document.title = "vilmerolle"; // Reset title to "vilmerolle"
+            activityTimer = setTimeout(fetchRandomWord, inactivityTime); // Set timeout for inactivity
+        }
+
+        // Listen for user activity
+        window.addEventListener("mousemove", resetActivityTimer);
+        window.addEventListener("keydown", resetActivityTimer);
+
+        // Start the inactivity timer
+        activityTimer = setTimeout(fetchRandomWord, inactivityTime); // Trigger inactivity title change
+
     </script>
+
 </body>
 </html>
