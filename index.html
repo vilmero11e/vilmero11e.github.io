@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vilmerolle</title>
+    <title>Vilmerolle</title>
+    
+    <!-- Link to the favicon.ico file -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
     <style>
         /* General styling */
         body {
@@ -186,42 +191,29 @@
             }, 300);
         });
 
-        // Set the initial title when the website is active
-        document.title = "vilmerolle";
+        // Change title when the page is active or inactive
+        const randomWordsUrl = 'https://raw.githubusercontent.com/Shreda/pentestTools/refs/heads/master/random-words.txt';
 
-        // Set up inactivity timeout period (in milliseconds)
-        const inactivityTime = 500; // 0.5 seconds
-
-        // Function to fetch a random word from the external file
-        function fetchRandomWord() {
-            fetch("https://raw.githubusercontent.com/Shreda/pentestTools/refs/heads/master/random-words.txt")
+        // Function to get a random word from the URL
+        function getRandomWord() {
+            fetch(randomWordsUrl)
                 .then(response => response.text())
-                .then(text => {
-                    // Split the file into an array of words and pick a random word
-                    const words = text.split("\n");
+                .then(data => {
+                    const words = data.split('\n');
                     const randomWord = words[Math.floor(Math.random() * words.length)];
-                    document.title = randomWord;
+                    document.title = randomWord; // Change title to random word
                 })
-                .catch(error => console.error("Error fetching random words:", error));
+                .catch(error => console.error('Error fetching random words:', error));
         }
 
-        // Track user activity (mouse movements and keyboard input)
-        let activityTimer;
-
-        // Reset the activity timer whenever the user interacts with the page
-        function resetActivityTimer() {
-            clearTimeout(activityTimer);
-            document.title = "vilmerolle"; // Reset title to "vilmerolle"
-            activityTimer = setTimeout(fetchRandomWord, inactivityTime); // Set timeout for inactivity
-        }
-
-        // Listen for user activity
-        window.addEventListener("mousemove", resetActivityTimer);
-        window.addEventListener("keydown", resetActivityTimer);
-
-        // Start the inactivity timer
-        activityTimer = setTimeout(fetchRandomWord, inactivityTime); // Trigger inactivity title change
-
+        // Event listeners for page visibility
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                getRandomWord(); // Set a random word when the page is inactive
+            } else {
+                document.title = 'Vilmerolle'; // Set the title back to "Vilmerolle" when the page is active
+            }
+        });
     </script>
 
 </body>
